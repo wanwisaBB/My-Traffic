@@ -1,6 +1,7 @@
 package appewtc.masterung.mytraffic;
 
 import android.content.Intent;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Create ListView
         //Type1
-        int[] iconInts = {R.drawable.traffic_01, R.drawable.traffic_02,
+        final int[] iconInts = {R.drawable.traffic_01, R.drawable.traffic_02,
 
                 R.drawable.traffic_03, R.drawable.traffic_04, R.drawable.traffic_05,
                 R.drawable.traffic_06, R.drawable.traffic_07, R.drawable.traffic_08,
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.traffic_15, R.drawable.traffic_16, R.drawable.traffic_17,
                 R.drawable.traffic_18, R.drawable.traffic_19, R.drawable.traffic_20,};
         //Type2
-        String[] titleString = new String[20];
+        final String[] titleString = new String[20];
         titleString[0] = "หัวข้อหลักที่ 1";
         titleString[1] = "หัวข้อหลักที่ 2";
         titleString[2] = "หัวข้อหลักที่ 3";
@@ -83,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
            Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                intent.putExtra("Title", titleString);
+                intent.putExtra("Image", iconInts);
+                intent.putExtra("Index", position);
+
+
                 startActivity(intent);
 
             }  //even
